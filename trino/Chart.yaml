@@ -3,9 +3,6 @@ dependencies:
 - name: trino
   repository: "https://trinodb.github.io/charts/"
   version: 1.39.1
-# - name: trino-gateway
-#   repository: "https://trinodb.github.io/charts/"
-#   version: 1.15.3
 description: "lkjglkejreljlrtj"
 name: trino
 type: application
