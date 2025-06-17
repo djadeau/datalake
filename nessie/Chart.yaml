@@ -2,6 +2,7 @@ apiVersion: v3
 dependencies: 
 - name: nessie
   repository: "https://charts.projectnessie.org"
+  version: 0.104.2
 description: "lkjglkejreljlrtj"
 name: nessie
 type: application
