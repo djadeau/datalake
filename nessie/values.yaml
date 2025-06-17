@@ -1,0 +1,37 @@
+nessie:
+
+  replicaCount: 1
+
+  image:
+  # -- The image repository to pull from.
+    repository: ghcr.io/projectnessie/nessie
+    # -- The image pull policy.
+    pullPolicy: IfNotPresent
+    # -- Overrides the image tag whose default is the chart version.
+    tag: "0.104.2"
+    # -- The path to the directory where the application.properties file should be mounted.
+    configDir: /deployments/config
+  
+  log:
+    level: ERROR
+
+  catalog:
+    enabled: false
+
+  autoscaling:
+    # -- Specifies whether automatic horizontal scaling should be enabled.
+    # Do not enable this when using ROCKSDB version store type.
+    enabled: true
+    # -- The minimum number of replicas to maintain.
+    minReplicas: 1
+    # -- The maximum number of replicas to maintain.
+    maxReplicas: 3
+    # -- Optional; set to zero or empty to disable.
+    targetCPUUtilizationPercentage: 80
+    # -- Optional; set to zero or empty to disable.
+    targetMemoryUtilizationPercentage: 80
+
+  jdbc:
+    jdbcUrl: jdbc:postgresql://pgnessie.data-lakehouse:5432/nessie?currentSchema=nessie
+    secret:
+      name: nessie-pg-secret

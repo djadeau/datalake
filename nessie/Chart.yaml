@@ -1,0 +1,10 @@
+apiVersion: v3
+dependencies: 
+- name: nessie
+  repository: "https://charts.projectnessie.org"
+  version: 16.4.6
+description: "lkjglkejreljlrtj"
+name: postgresql
+type: application
+appVersion: "1.0.0"
+version: 0.0.0
