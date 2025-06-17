@@ -1,0 +1,87 @@
+
+
+# trino-gateway:
+#   replicaCount: 1
+#   image:
+#     # -- Repository location of the Trino Gateway image, typically `organization/imagename`
+#     repository: "trinodb/trino-gateway"
+#     pullPolicy: IfNotPresent
+#     # -- Override the image tag whose default is the chart appVersion.
+#     tag: "15"
+
+
+trino:
+  image:
+    # -- Repository location of the Trino Gateway image, typically `organization/imagename`
+    repository: "trinodb/trino"
+    pullPolicy: IfNotPresent
+    # -- Override the image tag whose default is the chart appVersion.
+    tag: "476"
+  
+  server:
+    workers: 2
+  
+    autoscaling:
+      enabled: true
+      maxReplicas: 5
+      # -- Target average CPU utilization, represented as a percentage of requested CPU. To disable scaling based on CPU,
+      # set to an empty string.
+      targetCPUUtilizationPercentage: 50
+      # -- Target average memory utilization, represented as a percentage of requested memory. To disable scaling
+      # based on memory, set to an empty string.
+      targetMemoryUtilizationPercentage: 80
+
+    resources:
+    # coordinator.resources -- It is recommended not to specify default resources
+    # and to leave this as a conscious choice for the user. This also increases
+    # chances charts run on environments with little resources, such as Minikube.
+    # If you do want to specify resources, use the following example, and adjust
+    # it as necessary.
+      limits:
+        cpu: 500m
+        memory: 5000Mi
+      requests:
+        cpu: 100m
+        memory: 1024Mi
+  
+  coordinator:
+    jvm:
+      maxHeapSize: "4G"
+    resources:
+      # coordinator.resources -- It is recommended not to specify default resources
+      # and to leave this as a conscious choice for the user. This also increases
+      # chances charts run on environments with little resources, such as Minikube.
+      # If you do want to specify resources, use the following example, and adjust
+      # it as necessary.
+      limits:
+        cpu: 500m
+        memory: 5000Mi
+      requests:
+        cpu: 100m
+        memory: 1024Mi
+    
+  worker:
+    jvm:
+      maxHeapSize: "4G"
+    resources: {}
+    # worker.resources -- It is recommended not to specify default resources and
+    # to leave this as a conscious choice for the user. This also increases
+    # chances charts run on environments with little resources, such as Minikube.
+    # If you do want to specify resources, use the following example, and adjust
+    # it as necessary.
+      limits:
+        cpu: 500m
+        memory: 5000Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
+  additionalVolumes:
+  - name: trino-config
+    secret:
+      secretName: trino-properties-secret
+
+  additionalVolumeMounts:
+  - name: trino-config
+    mountPath: /etc/trino/catalog/
+    readOnly: true

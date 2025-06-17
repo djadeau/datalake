@@ -11,6 +11,14 @@ nessie:
     tag: "0.104.2"
     # -- The path to the directory where the application.properties file should be mounted.
     configDir: /deployments/config
+
+  resources:
+    limits:
+      cpu: 200m
+      memory: 1024Mi
+    requests:
+      cpu: 50m
+      memory: 512Mi
   
   log:
     level: ERROR
