@@ -47,7 +47,17 @@ trino:
       requests:
         cpu: 100m
         memory: 1024Mi
-    
+
+    additionalVolumes:
+    - name: trino-config
+      secret:
+        secretName: trino-properties-secret
+
+    additionalVolumeMounts:
+    - name: trino-config
+      mountPath: /etc/trino/catalog/
+      readOnly: true
+
   worker:
     jvm:
       maxHeapSize: "4G"
@@ -64,12 +74,12 @@ trino:
         cpu: 100m
         memory: 128Mi
 
-  additionalVolumes:
-  - name: trino-config
-    secret:
-      secretName: trino-properties-secret
+    additionalVolumes:
+    - name: trino-config
+      secret:
+        secretName: trino-properties-secret
 
-  additionalVolumeMounts:
-  - name: trino-config
-    mountPath: /etc/trino/catalog/
-    readOnly: true
+    additionalVolumeMounts:
+    - name: trino-config
+      mountPath: /etc/trino/catalog/
+      readOnly: true
