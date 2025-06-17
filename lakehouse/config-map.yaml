@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: trino-config
+  namespace: data-lakehouse
+data:
+  raw.properties: |
+    connector.name=iceberg
+    iceberg.catalog.type=nessie
+    iceberg.nessie-catalog.uri=http://catalog:19120/api/v1
+    iceberg.nessie-catalog.default-warehouse-dir=s3://lakehouse-raw/
+    fs.native-s3.enabled=true
+    s3.endpoint=http://minio.minio-operator.svc.cluster.local
+    s3.region=fr-west-1
+    s3.path-style-access=true
+    s3.aws-access-key=w6u4EJ4JCMT4IVQq1KJZ
+    s3.aws-secret-key=jeyxGAu9zjc0uz9NRaLPb2OTfo3ZNYyK3VjVJC6t
+
+
+#    s3.aws-access-key=5T4uGSpbXcUi8bZSVXaZ
+#    s3.aws-secret-key=2srxH6BZoe7YqrqKcZEWJQ5UySyVmc4rCO5U1Mvf

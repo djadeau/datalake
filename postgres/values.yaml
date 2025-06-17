@@ -1,0 +1,21 @@
+tag_postgres: &tag "17.2.0"
+
+postgresql:
+  nameOverride: "pgnessie"
+  fullnameOverride: "pgnessie"
+
+  image:
+    registry: docker.io
+    repository: bitnami/postgresql
+    tag: *tag_postgres
+
+  primary:
+    resources:
+      limits:
+        cpu: 100m
+        memory: 256Mi
+    
+  auth:
+    existingSecret: pgnessie-secret
+    username: nessie
+    database: nessie
