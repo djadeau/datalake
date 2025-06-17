@@ -34,6 +34,6 @@ nessie:
     targetMemoryUtilizationPercentage: 80
 
   jdbc:
-    jdbcUrl: jdbc:postgresql://pgnessie.data-lakehouse:5432/nessie?currentSchema=nessie
+    jdbcUrl: jdbc:postgresql://pgnessie.data-lakehouse:5432/nessie
     secret:
       name: nessie-pg-secret
