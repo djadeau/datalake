@@ -1,4 +1,4 @@
-tag_postgres: &tag "17.2.0"
+tag_postgres: &tag_postgres "17.2.0"
 
 postgresql:
   nameOverride: "pgnessie"
