@@ -49,7 +49,7 @@ trino:
   worker:
     jvm:
       maxHeapSize: "4G"
-    resources: {}
+    resources: 
     # worker.resources -- It is recommended not to specify default resources and
     # to leave this as a conscious choice for the user. This also increases
     # chances charts run on environments with little resources, such as Minikube.
