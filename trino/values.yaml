@@ -1,15 +1,3 @@
-
-
-# trino-gateway:
-#   replicaCount: 1
-#   image:
-#     # -- Repository location of the Trino Gateway image, typically `organization/imagename`
-#     repository: "trinodb/trino-gateway"
-#     pullPolicy: IfNotPresent
-#     # -- Override the image tag whose default is the chart appVersion.
-#     tag: "15"
-
-
 trino:
   image:
     # -- Repository location of the Trino Gateway image, typically `organization/imagename`
