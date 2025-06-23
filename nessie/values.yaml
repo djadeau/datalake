@@ -2,6 +2,8 @@ nessie:
 
   replicaCount: 1
 
+  service: {}
+
   image:
   # -- The image repository to pull from.
     repository: ghcr.io/projectnessie/nessie
