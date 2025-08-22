@@ -12,7 +12,8 @@ spec:
   revisionHistoryLimit: 1
   template:
     metadata:
-      labels: "rest-cat"
+      labels: 
+        app: rest-cat
     spec:
       containers:
       - image: apache/iceberg-rest-fixture:1.9.2
