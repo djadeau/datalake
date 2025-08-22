@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rest-cat
+  name: rest-cat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest-cat
+  revisionHistoryLimit: 1
+  template:
+    metadata:
+      annotations:
+        checksum/rest-config: {{}}
+      labels: rest-cat
+    spec:
+      containers:
+      - image: apache/iceberg-rest-fixture:1.9.2
+        name: rest-cat
+        ports:
+        - containerPort: 8181
+          name: rest
+          protocol: TCP
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: rest-cat-secret
+              key: AWS_ACCESS_KEY_ID
