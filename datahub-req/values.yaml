@@ -183,7 +183,7 @@ kafka:
     interbroker:
       protocol: PLAINTEXT
   controller:
-    replicaCount: 0
+    replicaCount: 1
   broker:
     replicaCount: 1
     # The new minId for broker is 100. If we don't override this, the broker will have id 100
