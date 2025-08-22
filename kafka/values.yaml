@@ -11,13 +11,13 @@
 ## @param global.defaultStorageClass Global default StorageClass for Persistent Volume(s)
 ##
 global:
-  imageRegistry: ""
+  # imageRegistry: ""
   ## E.g.
   ## imagePullSecrets:
   ##   - myRegistryKeySecretName
   ##
-  imagePullSecrets: []
-  defaultStorageClass: ""
+  # imagePullSecrets: []
+  # defaultStorageClass: ""
   ## Security parameters
   ##
   security:
