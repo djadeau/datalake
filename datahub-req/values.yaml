@@ -83,7 +83,7 @@ neo4j:
     edition: "community"
     acceptLicenseAgreement: "yes"
     defaultDatabase: "graph.db"
-    password: "datahub"
+    password: "datahub123"
     # For better security, add password to neo4j-secrets k8s secret with: neo4j-username, neo4j-password, and NEO4J_AUTH then uncomment below
     # NEO4J_AUTH: should be composed like so: {Username}/{Password}
     # passwordFromSecret: neo4j-secrets
@@ -112,7 +112,7 @@ neo4j:
     NEO4J_PLUGINS: '["apoc"]'
 
 mysql:
-  enabled: true
+  enabled: false
   image:
     tag: 8.0.32-debian-11-r26
   auth:
