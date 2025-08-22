@@ -103,7 +103,7 @@ neo4j:
   # Create a volume for neo4j, SSD storage is recommended
   volumes:
     data:
-      mode: "ceph-rbd"
+      mode: "defaultStorageClass"
       # mode: "dynamic"
       # dynamic:
       #   storageClassName: managed-csi-premium
