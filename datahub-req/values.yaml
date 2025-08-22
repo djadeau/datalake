@@ -183,9 +183,9 @@ kafka:
     interbroker:
       protocol: PLAINTEXT
   controller:
-    replicaCount: 1
+    replicaCount: 3
   broker:
-    replicaCount: 1
+    replicaCount: 2
     # The new minId for broker is 100. If we don't override this, the broker will have id 100
     # and cannot load the partitions. So we set minId to 0 to be backwards compatible
     minId: 0
